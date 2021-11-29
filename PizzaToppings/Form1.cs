@@ -23,6 +23,12 @@ namespace PizzaToppings
 
         private void PizzaSize_CheckedChanged(object sender, EventArgs e)
         {
+
+            CalulatePizzaCost();
+        }
+
+        private void CalulatePizzaCost()
+        {
             if (rdoSmallSize.Checked)
             {
                 pizzaPrice = 10;
@@ -36,7 +42,7 @@ namespace PizzaToppings
                 pizzaPrice = 20;
             }
 
-            
+
             totalPrice = pizzaPrice;
             if (cbMushroom.Checked)
             {
@@ -50,14 +56,10 @@ namespace PizzaToppings
             {
                 totalPrice += 5;
             }
-            CalulatePizzaCost(totalPrice);
-        }
 
-        private void CalulatePizzaCost(float total)
-        {
             if (rdoSmallSize.Checked || rdoMediumSize.Checked || rdoLargeSize.Checked)
             {
-                txtTotal.Text = String.Format("{0:C}", total);
+                txtTotal.Text = String.Format("{0:C}", totalPrice);
             }
         }
     }
